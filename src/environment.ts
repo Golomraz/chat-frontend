@@ -1,3 +1,3 @@
 export const env = {
-    API_URL: 'http://localhost:3000'
+    API_URL: 'https://back-8c1p.onrender.com'
 }
