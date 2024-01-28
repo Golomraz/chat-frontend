@@ -1,0 +1,42 @@
+<div class="call_container">
+  <div *ngIf="isWaiting && !rejected">Ожидание ответа</div>
+  <div *ngIf="rejected && !isWaiting">Отказано в доступе</div>
+  <div *ngIf="isJoined || isHost" class="call_users">
+    Пользователи:
+    <div *ngFor="let user of roomUsers" class="call_users_item" [ngClass]="{
+      'red': user.microOff && user.id !== currentUser.id || !isMicroOn && user.id === currentUser.id
+    }">
+        {{user.username}}
+        <button mat-raised-button *ngIf="isHost && user.id !== currentUser.id" (click)="kick(user)">Исключить</button>
+      </div>
+      <div *ngIf="requests.length">Запросы на вход:</div>
+      <div *ngFor="let req of requests" class="call_requests">
+        <div>{{ req.username }}</div>
+        <button mat-raised-button (click)="accept(req)">Принять</button>
+        <button mat-raised-button (click)="decline(req)">Отказать</button>
+      </div>
+  </div>
+  <div>
+    <button mat-raised-button *ngIf="isInvited && !isHost && !isJoined" (click)="joinToRoom()">
+      Присоединиться
+    </button>
+    <button mat-raised-button *ngIf="!isInvited && !isHost && !isJoined" (click)="askToJoin()">
+      Запросить доступ
+    </button>
+  </div>
+  <div>
+    
+  </div>
+
+  
+  <app-paint *ngIf="room && (isJoined || isHost)" [isHost]="isHost" [room]="room"></app-paint>
+  <div class="actions">
+    <button *ngIf="isJoined || isHost" mat-raised-button (click)="changeMicroStatus()">
+      {{microButtonText}}
+    </button>
+  <button *ngIf="isJoined || isHost" mat-raised-button (click)="leaveRoom()">
+    Отключиться
+  </button>
+  <button *ngIf="isHost" mat-raised-button (click)="deleteRoom()">Завершить встречу</button>
+  </div>
+</div>

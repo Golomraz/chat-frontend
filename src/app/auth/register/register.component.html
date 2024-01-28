@@ -1,0 +1,22 @@
+<div class="register_container">
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+        <div class="auth_item">
+            <p>Имя пользователя</p>
+            <input formControlName="username" class="auth_input"/>
+            <p class="error_message">{{getError('username')}}</p>
+        </div>
+        <div class="auth_item">
+            <p>Пароль</p>
+            <input formControlName="password" class="auth_input"/>
+            <p class="error_message">{{getError('password')}}</p>
+        </div>
+        <div class="auth_item">
+            <p>Повторите пароль</p>
+            <input formControlName="re_password" class="auth_input"/>
+            <p class="error_message">{{getError('re_password')}}</p>
+        </div>
+        <button type="submit" class="button_default">
+            Зарегистрироваться
+        </button>
+    </form>
+</div>

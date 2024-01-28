@@ -1,0 +1,17 @@
+<div class="home_container">
+    <div class="home_actions">
+            <input matInput type="text" [formControl]="findByLetter"/>
+        
+        <button mat-raised-button [disabled]="addedUsers.length === 0" (click)="createRoom()">Начать звонок</button>
+    </div>
+    <div class="home_list">
+        <div *ngFor="let user of addedUsers" class="item">
+            <div>{{user.username}}</div>
+            <button mat-raised-button color="accent" (click)="remove(user)">Удалить</button>
+        </div>
+            <div *ngFor="let user of users" class="item">
+                <div>{{user.username}}</div>
+                <button mat-raised-button (click)="add(user)">Добавить</button>
+            </div>
+    </div>
+</div>

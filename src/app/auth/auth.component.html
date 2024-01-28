@@ -1,0 +1,19 @@
+<div class="auth_container">
+    <div class="auth">
+        <div class="auth_header">
+            <div 
+            *ngFor="let page of pageKeys"
+            (click)="changePage(page)"
+            [ngClass]="{
+                'selected_item': selectedPage === page
+            }"
+            >
+                {{page}}
+            </div>
+        </div>
+        <div class="auth_body">
+            <register *ngIf="isRegister" (submitForm)="onRegister($event)"></register>
+            <login *ngIf="isLogin" (submitForm)="onLogin($event)"></login>
+        </div>
+    </div>
+</div>

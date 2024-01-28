@@ -1,0 +1,39 @@
+.call_container {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.call_requests {
+    display: flex;
+    flex-direction: row;
+}
+
+.call_users {
+    width: 200px;
+    height: 490px;
+    margin-left: 60px;
+    margin-top: 95px;
+    border: 1px solid black;
+    padding: 5px;
+}
+
+.call_users_item {
+    display: flex;
+    color: green;
+}
+
+.actions {
+    position: absolute;
+    bottom: 40px;
+    overflow: hidden;
+    height: 100px;
+}
+
+.red {
+    color: red;
+}
